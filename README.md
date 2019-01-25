@@ -1,17 +1,14 @@
 == README
 
 
-
 ## users table
 
 |Column|Type|Options|
 |------|----|-------|
 |name  |string      |null:false|
-|------|timestamps  |null:false|
 |email |string      |unique: true|
 
 ### Association
-- 	 has_many :comments
 -	 has_many :massages
 -	 has_many :users_groups
 -	 has_many :groups, throught: :users_groups
@@ -23,9 +20,8 @@
 |--------|----------|-------|
 |text    |text      |null: false|
 |image   |string    |------|
-|group_id|integer   |foreign_key: true|
+|group_id|references|foreign_key: true|
 |user    |references|foreign_key:true|
-|-----   |timestamps|null: false|
 
 ### Association
 
@@ -38,29 +34,25 @@
 |Column|Type      |Options|
 |------|----------|-------|
 |name  |string    |null: false|
-|------|timestamps|null: false|
 
 ### Association
 
--	has_many :users_groups
--	has_many :users, throght: :users_groups
+-	has_many :user_groups
+-	has_many :users, throght: :user_groups
 
 
 
-## users_groups table
+## user_groups table
 
 |Column     |Type     |Options    |
 |-----------|---------|-----------|
 |user_id    |string   |-----------|
 |groups_id  |string   |-----------|
-|-----------|timestaps|null: false|
 
 ## Association
 
--  belongs_to :User
+-  belongs_to :user
 -  belongs_to :group
-
-
 --------------------------------------
 
 
