@@ -17,28 +17,11 @@
 -	 has_many :groups, throught: :users_groups
 
 
-
-## comment table
-
-|Column  |Type      |Options|
-|--------|----------|-------|
-|comment |text      |foreign_key: true|
-|group_id|integer   |foreign_key:true|
-|image   |string    |------|
-|user    |references|foreign_key:true|
-|--------|timestamps|null:false|
-
-### Association
-
-- belongs_to :user
-
-
-
 ## message table
 
 |Column  |Type      |Options|
 |--------|----------|-------|
-|message |text      |user, foreign_key: true|
+|text    |text      |null: false|
 |image   |string    |------|
 |group_id|integer   |foreign_key: true|
 |user    |references|foreign_key:true|
@@ -47,7 +30,7 @@
 ### Association
 
 - belongs_to :user
-
+- belongs_to :gruop
 
 
 ## groups table
@@ -68,8 +51,8 @@
 
 |Column     |Type     |Options    |
 |-----------|---------|-----------|
-|user_name  |string   |-----------|
-|groups_name|string   |-----------|
+|user_id    |string   |-----------|
+|groups_id  |string   |-----------|
 |-----------|timestaps|null: false|
 
 ## Association
